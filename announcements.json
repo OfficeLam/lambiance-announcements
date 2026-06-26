@@ -1,12 +1,3 @@
 {
-  "announcements": [
-    {
-      "id": "test-1",
-      "title": "Test Announcement — Image Display",
-      "dateSent": "2026-06-26T10:00:00",
-      "audience": ["All Residents"],
-      "body": "<p>This is a test announcement to confirm image display is working correctly.</p>",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1280px-Image_created_with_a_mobile_phone.png"
-    }
-  ]
+  "announcements": []
 }
