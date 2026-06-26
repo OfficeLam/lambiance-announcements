@@ -22,9 +22,7 @@
       --row-hover:   #F0F7F6;
     }
 
-    html, body {
-      height: 100%;
-    }
+    html, body { height: 100%; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -109,19 +107,10 @@
       pointer-events: none;
     }
 
-    /* ── GOLD ACCENT BAR ── */
-    .gold-bar {
-      height: 3px;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
+    .gold-bar { height: 3px; background: var(--gold); flex-shrink: 0; }
 
-    /* ── MAIN CONTENT AREA ── */
-    .main {
-      display: flex;
-      flex: 1;
-      overflow: hidden;
-    }
+    /* ── MAIN ── */
+    .main { display: flex; flex: 1; overflow: hidden; }
 
     /* ── LIST PANEL ── */
     .list-panel {
@@ -134,9 +123,7 @@
       flex-shrink: 0;
     }
 
-    .list-panel.compressed {
-      width: 38%;
-    }
+    .list-panel.compressed { width: 38%; }
 
     .list-count {
       padding: 0.6rem 1.25rem;
@@ -148,12 +135,9 @@
       flex-shrink: 0;
     }
 
-    .list-scroll {
-      overflow-y: auto;
-      flex: 1;
-    }
+    .list-scroll { overflow-y: auto; flex: 1; }
 
-    /* ── LIST ROW ── */
+    /* ── ROW ── */
     .row {
       display: flex;
       align-items: center;
@@ -173,10 +157,7 @@
       padding-left: calc(1.25rem - 2px);
     }
 
-    .row-content {
-      flex: 1;
-      min-width: 0;
-    }
+    .row-content { flex: 1; min-width: 0; }
 
     .row-date {
       font-size: 0.68rem;
@@ -195,7 +176,6 @@
       text-overflow: ellipsis;
     }
 
-    /* hide audience tags in compressed list view */
     .row-tags {
       display: flex;
       flex-wrap: wrap;
@@ -203,9 +183,7 @@
       margin-top: 0.3rem;
     }
 
-    .list-panel.compressed .row-tags {
-      display: none;
-    }
+    .list-panel.compressed .row-tags { display: none; }
 
     .tag {
       font-size: 0.58rem;
@@ -239,11 +217,8 @@
       background: var(--white);
     }
 
-    .detail-panel.open {
-      display: flex;
-    }
+    .detail-panel.open { display: flex; }
 
-    /* detail header strip */
     .detail-header {
       background: var(--teal);
       padding: 0.75rem 1.25rem;
@@ -278,7 +253,6 @@
 
     .detail-close:hover { background: rgba(255,255,255,0.25); }
 
-    /* metadata bar */
     .detail-meta {
       display: flex;
       gap: 0;
@@ -315,22 +289,58 @@
       padding-top: 0.2rem;
     }
 
-    /* scrollable body */
     .detail-body {
       flex: 1;
       overflow-y: auto;
       padding: 1.25rem;
     }
 
-    .detail-image {
-      width: 100%;
-      max-height: 500px;
-      object-fit: contain;
-      border-radius: 6px;
+    /* ── ATTACHMENTS ── */
+    /* Each attachment sits in its own block, stacked vertically with space between */
+    .attachment-block {
       margin-bottom: 1.25rem;
+    }
+
+    .attachment-block:last-of-type {
+      margin-bottom: 1.25rem;
+    }
+
+    /* Images: full width, tall portraits preserved naturally */
+    .attachment-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
       background: var(--teal-light);
+    }
+
+    /* PDFs: embedded viewer, tall enough to read without scrolling inside */
+    .attachment-pdf {
+      width: 100%;
+      height: 700px;
+      border: 1.5px solid var(--teal-border);
+      border-radius: 6px;
       display: block;
     }
+
+    /* Fallback link shown on mobile where iframes can't render PDFs */
+    .attachment-pdf-fallback {
+      display: none;
+      padding: 1rem;
+      background: var(--teal-light);
+      border: 1.5px solid var(--teal-border);
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .attachment-pdf-fallback a {
+      color: var(--teal);
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+    }
+
+    .attachment-pdf-fallback a:hover { text-decoration: underline; }
 
     .detail-text {
       font-size: 0.875rem;
@@ -345,7 +355,7 @@
       line-height: 2;
     }
 
-    /* ── EMPTY STATE ── */
+    /* ── EMPTY ── */
     .empty {
       text-align: center;
       padding: 3rem 1rem;
@@ -358,21 +368,20 @@
     /* ── MOBILE ── */
     @media (max-width: 640px) {
       body { overflow: auto; }
-
       .main { flex-direction: column; overflow: visible; }
-
       .list-panel,
       .list-panel.compressed { width: 100%; border-right: none; }
-
       .list-scroll { overflow: visible; }
-
       .detail-panel.open {
         position: fixed;
         inset: 0;
         z-index: 200;
         flex-direction: column;
       }
-
+      /* On mobile, swap iframe for fallback download link since most mobile
+         browsers can't render PDFs inline */
+      .attachment-pdf { display: none; }
+      .attachment-pdf-fallback { display: block; }
       .header-sub { display: none; }
       .header-search { max-width: none; }
     }
@@ -398,13 +407,11 @@
 
   <div class="main">
 
-    <!-- LIST -->
     <div class="list-panel" id="listPanel">
       <div class="list-count" id="countLine"></div>
       <div class="list-scroll" id="announcementList"></div>
     </div>
 
-    <!-- DETAIL -->
     <div class="detail-panel" id="detailPanel">
       <div class="detail-header">
         <span class="detail-header-title" id="detailTitle"></span>
@@ -421,46 +428,54 @@
     const REPO_NAME  = 'lambiance-announcements';
     const DATA_URL   = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/announcements.json`;
 
+    // ── SAMPLE DATA ──
+    // attachments is an array. Each item has:
+    //   { url: "https://...", type: "image" }  — for JPG/PNG
+    //   { url: "https://...", type: "pdf" }    — for PDF
+    // Power Automate will populate this array when it writes to announcements.json.
+    // Empty array means no attachments — just body text shows.
     const SAMPLE = [
       {
         id: "sample-1",
-        title: "Pool Closure — Resurfacing Work",
-        dateSent: "2026-06-20T10:30:00",
+        title: "4th of July Office Closure & Contractor Lock-Out",
+        dateSent: "2026-06-25T09:00:00",
         audience: ["All Residents"],
-        body: "<p>Please be advised that the pool at both buildings will be closed from <strong>Monday, June 23rd through Friday, June 27th</strong> for scheduled resurfacing and tile repair work.</p><p>We apologize for any inconvenience and appreciate your patience. The pool is expected to reopen over the weekend pending inspection. Questions may be directed to the management office.</p>",
-        imageUrl: ""
+        body: "<p>The office will be closed <strong>Friday, July 3rd</strong> in observance of Independence Day. This is also a contractor lock-out date — no contractor or vendor access to units will be permitted.</p><p>For emergencies, please contact the concierge desk.</p>",
+        attachments: [
+          { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1280px-Image_created_with_a_mobile_phone.png", type: "image" }
+        ]
       },
       {
         id: "sample-2",
-        title: "July 4th Parking & Noise Reminder",
-        dateSent: "2026-06-18T09:00:00",
+        title: "Hurricane Season Preparedness",
+        dateSent: "2026-06-01T08:00:00",
         audience: ["All Residents"],
-        body: "<p>With the holiday weekend approaching, management would like to remind all residents of the following:</p><ul><li>Guest parking is limited to designated visitor spaces only.</li><li>Quiet hours remain in effect after 10:00 PM per association rules.</li><li>Fireworks are not permitted on association property.</li></ul><p>Enjoy the holiday!</p>",
-        imageUrl: ""
+        body: "<p>Hurricane season runs June 1 through November 30. Please ensure your unit is prepared: secure all balcony furniture, review your insurance coverage, and confirm your emergency contacts are on file with the management office.</p>",
+        attachments: []
       },
       {
         id: "sample-3",
         title: "Lobby Floor Refinishing — Building II",
-        dateSent: "2026-06-10T08:15:00",
+        dateSent: "2026-05-28T07:30:00",
         audience: ["Building II Residents", "Concierge", "Property Management"],
-        body: "<p>Contractors will be refinishing the main lobby floor in Building II on <strong>Thursday, June 12th</strong> beginning at 7:00 AM. Access through the main lobby entrance will be restricted until approximately 2:00 PM.</p><p>Residents are asked to use the rear entrance during this time. Concierge staff will be on hand to assist.</p>",
-        imageUrl: ""
+        body: "<p>Contractors will be refinishing the main lobby floor in Building II on <strong>Thursday, June 4th</strong> beginning at 7:00 AM. One elevator will remain in service. Residents are asked to use the rear entrance during this time.</p>",
+        attachments: []
       },
       {
         id: "sample-4",
-        title: "Hurricane Season Preparedness Reminder",
-        dateSent: "2026-06-01T08:00:00",
+        title: "Pool Closure — Resurfacing Work",
+        dateSent: "2026-05-20T10:30:00",
         audience: ["All Residents"],
-        body: "<p>Hurricane season runs June 1 through November 30. Please ensure your unit is prepared: secure all balcony furniture, review your insurance coverage, and confirm your emergency contacts are on file with the management office.</p>",
-        imageUrl: ""
+        body: "<p>The pool at both buildings will be closed from <strong>Monday, May 23rd through Friday, May 27th</strong> for scheduled resurfacing and tile repair. The pool is expected to reopen over the weekend pending inspection.</p>",
+        attachments: []
       },
       {
         id: "sample-5",
-        title: "Elevator Maintenance — Building I",
-        dateSent: "2026-05-28T07:30:00",
-        audience: ["Building I Residents", "Concierge"],
-        body: "<p>Scheduled elevator maintenance will take place in Building I on <strong>Wednesday, June 4th</strong> from 8:00 AM to 12:00 PM. One elevator will remain in service at all times. We appreciate your patience.</p>",
-        imageUrl: ""
+        title: "Wind Mitigation Reports — Now Available",
+        dateSent: "2026-05-10T09:00:00",
+        audience: ["All Residents", "Property Management"],
+        body: "<p>Updated wind mitigation reports are now available in the resident document library. These reports may be useful when renewing your homeowner's insurance policy. Please contact the office if you have questions.</p>",
+        attachments: []
       }
     ];
 
@@ -469,7 +484,7 @@
 
     async function loadData() {
       try {
-        const res = await fetch(DATA_URL + '?t=' + Date.now());
+        const res  = await fetch(DATA_URL + '?t=' + Date.now());
         const json = await res.json();
         const live = json.announcements || [];
         allAnnouncements = (live.length > 0 ? live : SAMPLE).sort(
@@ -512,12 +527,9 @@
         row.className = 'row' + (a.id === selectedId ? ' active' : '');
         row.setAttribute('data-id', a.id);
 
-        const d = new Date(a.dateSent);
+        const d       = new Date(a.dateSent);
         const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-
-        const tags = (a.audience || []).map(aud =>
-          `<span class="tag">${escHtml(aud)}</span>`
-        ).join('');
+        const tags    = (a.audience || []).map(aud => `<span class="tag">${escHtml(aud)}</span>`).join('');
 
         row.innerHTML = `
           <div class="row-content">
@@ -536,22 +548,19 @@
     function openDetail(a) {
       selectedId = a.id;
 
-      // mark active row
       document.querySelectorAll('.row').forEach(r =>
         r.classList.toggle('active', r.getAttribute('data-id') === a.id)
       );
 
-      // compress list
       document.getElementById('listPanel').classList.add('compressed');
       document.getElementById('detailPanel').classList.add('open');
 
-      // title
       document.getElementById('detailTitle').textContent = a.title;
 
-      // meta bar
-      const d = new Date(a.dateSent);
+      const d       = new Date(a.dateSent);
       const dateStr = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-      const tags = (a.audience || []).map(aud => `<span class="tag">${escHtml(aud)}</span>`).join('');
+      const tags    = (a.audience || []).map(aud => `<span class="tag">${escHtml(aud)}</span>`).join('');
+
       document.getElementById('detailMeta').innerHTML = `
         <div class="detail-meta-item">
           <div class="detail-meta-label">Date</div>
@@ -563,12 +572,36 @@
         </div>
       `;
 
-      // body
-      const imageBlock = a.imageUrl
-        ? `<img class="detail-image" src="${escHtml(a.imageUrl)}" alt="Announcement flyer" loading="lazy" />`
+      // Build attachments block
+      // Each attachment is { url, type } where type is "image" or "pdf"
+      // Images render as <img>, PDFs render as <iframe> on desktop
+      // and a download link on mobile (handled via CSS)
+      const attachments = a.attachments || [];
+      const attachmentHTML = attachments.map(att => {
+        if (att.type === 'pdf') {
+          return `
+            <div class="attachment-block">
+              <iframe class="attachment-pdf" src="${escHtml(att.url)}" title="Announcement PDF"></iframe>
+              <div class="attachment-pdf-fallback">
+                <a href="${escHtml(att.url)}" target="_blank" rel="noopener">📄 Open PDF</a>
+              </div>
+            </div>
+          `;
+        } else {
+          return `
+            <div class="attachment-block">
+              <img class="attachment-image" src="${escHtml(att.url)}" alt="Announcement attachment" loading="lazy" />
+            </div>
+          `;
+        }
+      }).join('');
+
+      const bodyText = a.body
+        ? `<div class="detail-text">${a.body}</div>`
         : '';
-      document.getElementById('detailBody').innerHTML = imageBlock +
-        `<div class="detail-text">${a.body || ''}</div>`;
+
+      // Attachments first, then body text
+      document.getElementById('detailBody').innerHTML = attachmentHTML + bodyText;
     }
 
     function closeDetail() {
