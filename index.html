@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L'Ambiance at Longboat Key Club — Announcements</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:        #01544E;
+      --teal-mid:    #417371;
+      --teal-light:  #EAF2F1;
+      --teal-border: #C2D8D6;
+      --gold:        #B89A5A;
+      --white:       #FFFFFF;
+      --ink:         #1A1A1A;
+      --ink-soft:    #4A4A4A;
+      --ink-muted:   #888888;
+      --surface:     #F7FAFA;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      background: var(--surface);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--teal);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-wordmark {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .header-wordmark .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+    .header-wordmark .sub {
+      font-size: 0.65rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .header-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── HERO STRIP ── */
+    .hero {
+      background: var(--teal-mid);
+      padding: 2.5rem 2rem 2rem;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+    }
+
+    .hero p {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── SEARCH ── */
+    .controls {
+      margin-bottom: 2rem;
+    }
+
+    .search-wrap {
+      position: relative;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      padding: 0.7rem 0.75rem 0.7rem 2.4rem;
+      border: 1.5px solid var(--teal-border);
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      background: var(--white);
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .search-wrap input:focus { border-color: var(--teal); }
+
+    .search-wrap input::placeholder { color: var(--ink-muted); }
+
+    .search-wrap::before {
+      content: "⌕";
+      position: absolute;
+      left: 0.7rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink-muted);
+      font-size: 1.1rem;
+      pointer-events: none;
+    }
+
+    /* ── COUNT LINE ── */
+    .count-line {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--white);
+      border: 1.5px solid var(--teal-border);
+      border-radius: 10px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      transition: box-shadow 0.15s, border-color 0.15s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 18px rgba(1,84,78,0.10);
+      border-color: var(--teal-mid);
+    }
+
+    .card.open {
+      border-color: var(--teal);
+      border-left: 4px solid var(--gold);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 1.1rem 1.25rem 0.9rem;
+      gap: 1rem;
+    }
+
+    .card-header-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--teal);
+      line-height: 1.25;
+    }
+
+    .card-audience {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .tag {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      background: var(--teal-light);
+      color: var(--teal);
+      border: 1px solid var(--teal-border);
+    }
+
+    .card-date {
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+      padding-top: 0.15rem;
+    }
+
+    .card-divider {
+      height: 1px;
+      background: var(--teal-light);
+      margin: 0 1.25rem;
+    }
+
+    /* ── EXPANDED BODY ── */
+    .card-body {
+      display: none;
+      padding: 1.25rem 1.25rem 1.4rem;
+    }
+
+    .card-body.open { display: block; }
+
+    .card-image {
+      width: 100%;
+      max-height: 560px;
+      object-fit: contain;
+      border-radius: 6px;
+      margin-bottom: 1.1rem;
+      background: var(--teal-light);
+    }
+
+    .card-text {
+      font-size: 0.875rem;
+      line-height: 1.75;
+      color: var(--ink-soft);
+    }
+
+    .card-text a { color: var(--teal); }
+
+    /* ── EMPTY STATE ── */
+    .empty {
+      text-align: center;
+      padding: 4rem 1rem;
+      color: var(--ink-muted);
+    }
+
+    .empty .icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+      opacity: 0.4;
+    }
+
+    .empty p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--teal);
+      text-align: center;
+      padding: 1.25rem;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      header { height: 60px; padding: 0 1rem; }
+      .hero { padding: 1.75rem 1rem 1.5rem; }
+      .page { padding: 1.5rem 1rem 3rem; }
+      .card-header { flex-direction: column; gap: 0.4rem; }
+      .card-date { padding-top: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-wordmark">
+      <span class="name">L'Ambiance</span>
+      <span class="sub">Longboat Key Club</span>
+    </div>
+    <span class="header-label">Resident Portal</span>
+  </header>
+
+  <div class="hero">
+    <h1>Announcements</h1>
+    <p>Official notices and updates from association management</p>
+  </div>
+
+  <div class="page">
+    <div class="controls">
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Search by title, content, or audience…" oninput="renderAnnouncements()" />
+      </div>
+    </div>
+
+    <div class="count-line" id="countLine"></div>
+    <div id="announcementList"></div>
+  </div>
+
+  <footer>
+    &copy; L'Ambiance at Longboat Key Club &nbsp;·&nbsp; Association Management
+  </footer>
+
+  <script>
+    const REPO_OWNER = 'OfficeLam';
+    const REPO_NAME  = 'lambiance-announcements';
+    const DATA_URL   = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/announcements.json`;
+
+    // ── SAMPLE DATA (used only when the JSON file is empty or for preview) ──
+    // In production, all data comes from announcements.json which Power Automate writes to.
+    const SAMPLE = [
+      {
+        id: "sample-1",
+        title: "Pool Closure — Resurfacing Work",
+        dateSent: "2026-06-20T10:30:00",
+        audience: ["All Residents", "Building I Residents", "Building II Residents"],
+        body: "<p>Please be advised that the pool at both buildings will be closed from <strong>Monday, June 23rd through Friday, June 27th</strong> for scheduled resurfacing and tile repair work.</p><p style='margin-top:0.75rem'>We apologize for any inconvenience and appreciate your patience. The pool is expected to reopen over the weekend pending inspection. Questions may be directed to the management office.</p>",
+        imageUrl: ""
+      },
+      {
+        id: "sample-2",
+        title: "July 4th Parking & Noise Reminder",
+        dateSent: "2026-06-18T09:00:00",
+        audience: ["All Residents"],
+        body: "<p>With the holiday weekend approaching, management would like to remind all residents of the following:</p><ul style='margin-top:0.5rem;margin-left:1.25rem;line-height:2'><li>Guest parking is limited to designated visitor spaces only.</li><li>Quiet hours remain in effect after 10:00 PM per association rules.</li><li>Fireworks are not permitted on association property.</li></ul><p style='margin-top:0.75rem'>Enjoy the holiday!</p>",
+        imageUrl: ""
+      },
+      {
+        id: "sample-3",
+        title: "Lobby Floor Refinishing — Building II",
+        dateSent: "2026-06-10T08:15:00",
+        audience: ["Building II Residents", "Concierge", "Property Management"],
+        body: "<p>Contractors will be refinishing the main lobby floor in Building II on <strong>Thursday, June 12th</strong> beginning at 7:00 AM. Access through the main lobby entrance will be restricted until approximately 2:00 PM.</p><p style='margin-top:0.75rem'>Residents are asked to use the rear entrance during this time. Concierge staff will be on hand to assist.</p>",
+        imageUrl: ""
+      }
+    ];
+
+    let allAnnouncements = [];
+
+    async function loadData() {
+      try {
+        const res = await fetch(DATA_URL + '?t=' + Date.now());
+        const json = await res.json();
+        const live = json.announcements || [];
+        // If the live file has entries, use them. Otherwise fall back to sample data for preview.
+        allAnnouncements = (live.length > 0 ? live : SAMPLE).sort(
+          (a, b) => new Date(b.dateSent) - new Date(a.dateSent)
+        );
+        renderAnnouncements();
+      } catch (e) {
+        // If fetch fails entirely (e.g. local preview), use sample data
+        allAnnouncements = SAMPLE.sort((a, b) => new Date(b.dateSent) - new Date(a.dateSent));
+        renderAnnouncements();
+      }
+    }
+
+    function renderAnnouncements() {
+      const query     = document.getElementById('searchInput').value.toLowerCase().trim();
+      const container = document.getElementById('announcementList');
+
+      let filtered = allAnnouncements.filter(a => {
+        if (!query) return true;
+        return (
+          (a.title || '').toLowerCase().includes(query) ||
+          (a.body  || '').toLowerCase().includes(query) ||
+          (a.audience || []).some(aud => aud.toLowerCase().includes(query))
+        );
+      });
+
+      document.getElementById('countLine').textContent =
+        filtered.length === 0 ? '' :
+        filtered.length === 1 ? '1 announcement' :
+        `${filtered.length} announcements`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="empty"><div class="icon">📋</div><p>${
+          query ? 'No announcements match your search.' : 'No announcements yet.'
+        }</p></div>`;
+        return;
+      }
+
+      container.innerHTML = '';
+      filtered.forEach(a => {
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        const d = new Date(a.dateSent);
+        const dateStr = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+        const tags = (a.audience || []).map(aud =>
+          `<span class="tag">${escHtml(aud)}</span>`
+        ).join('');
+
+        const imageBlock = a.imageUrl
+          ? `<img class="card-image" src="${escHtml(a.imageUrl)}" alt="Announcement flyer" loading="lazy" />`
+          : '';
+
+        card.innerHTML = `
+          <div class="card-header" onclick="toggleCard(this.closest('.card'))">
+            <div class="card-header-left">
+              <div class="card-title">${escHtml(a.title)}</div>
+              <div class="card-audience">${tags}</div>
+            </div>
+            <span class="card-date">${dateStr}</span>
+          </div>
+          <div class="card-divider"></div>
+          <div class="card-body">
+            ${imageBlock}
+            <div class="card-text">${a.body || ''}</div>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function toggleCard(card) {
+      const body = card.querySelector('.card-body');
+      const isOpen = body.classList.contains('open');
+      document.querySelectorAll('.card-body.open').forEach(b => b.classList.remove('open'));
+      document.querySelectorAll('.card.open').forEach(c => c.classList.remove('open'));
+      if (!isOpen) {
+        body.classList.add('open');
+        card.classList.add('open');
+      }
+    }
+
+    function escHtml(str) {
+      return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    loadData();
+  </script>
+
+</body>
+</html>
