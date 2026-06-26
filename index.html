@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>L'Ambiance at Longboat Key Club — Announcements</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -19,6 +19,11 @@
       --ink-soft:    #4A4A4A;
       --ink-muted:   #888888;
       --surface:     #F7FAFA;
+      --row-hover:   #F0F7F6;
+    }
+
+    html, body {
+      height: 100%;
     }
 
     body {
@@ -26,318 +31,403 @@
       font-weight: 400;
       background: var(--surface);
       color: var(--ink);
-      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
     }
 
     /* ── HEADER ── */
     header {
       background: var(--teal);
-      padding: 0 2rem;
+      padding: 0 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      height: 60px;
+      flex-shrink: 0;
+      gap: 1.5rem;
     }
 
-    .header-wordmark {
+    .header-left {
       display: flex;
-      flex-direction: column;
-      gap: 1px;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex-shrink: 0;
     }
 
-    .header-wordmark .name {
+    .header-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       font-weight: 600;
       color: var(--white);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.02em;
       line-height: 1;
     }
 
-    .header-wordmark .sub {
+    .header-sub {
       font-size: 0.65rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.6);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .header-label {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
       color: rgba(255,255,255,0.5);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
     }
 
-    /* ── HERO STRIP ── */
-    .hero {
-      background: var(--teal-mid);
-      padding: 2.5rem 2rem 2rem;
-      border-bottom: 3px solid var(--gold);
-    }
-
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 600;
-      color: var(--white);
-      line-height: 1.1;
-      letter-spacing: 0.01em;
-    }
-
-    .hero p {
-      margin-top: 0.5rem;
-      font-size: 0.85rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 0.05em;
-    }
-
-    /* ── LAYOUT ── */
-    .page {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem 4rem;
-    }
-
-    /* ── SEARCH ── */
-    .controls {
-      margin-bottom: 2rem;
-    }
-
-    .search-wrap {
+    .header-search {
       position: relative;
+      flex: 1;
+      max-width: 380px;
     }
 
-    .search-wrap input {
+    .header-search input {
       width: 100%;
-      padding: 0.7rem 0.75rem 0.7rem 2.4rem;
-      border: 1.5px solid var(--teal-border);
+      padding: 0.45rem 0.75rem 0.45rem 2.1rem;
+      border: 1.5px solid rgba(255,255,255,0.25);
       border-radius: 6px;
       font-family: 'Inter', sans-serif;
-      font-size: 0.875rem;
-      background: var(--white);
-      color: var(--ink);
+      font-size: 0.8rem;
+      background: rgba(255,255,255,0.12);
+      color: var(--white);
       outline: none;
-      transition: border-color 0.15s;
+      transition: border-color 0.15s, background 0.15s;
     }
 
-    .search-wrap input:focus { border-color: var(--teal); }
+    .header-search input::placeholder { color: rgba(255,255,255,0.45); }
+    .header-search input:focus {
+      border-color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.18);
+    }
 
-    .search-wrap input::placeholder { color: var(--ink-muted); }
-
-    .search-wrap::before {
+    .header-search::before {
       content: "⌕";
       position: absolute;
-      left: 0.7rem;
+      left: 0.55rem;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--ink-muted);
-      font-size: 1.1rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 1rem;
       pointer-events: none;
     }
 
-    /* ── COUNT LINE ── */
-    .count-line {
-      font-size: 0.75rem;
-      color: var(--ink-muted);
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.04em;
+    /* ── GOLD ACCENT BAR ── */
+    .gold-bar {
+      height: 3px;
+      background: var(--gold);
+      flex-shrink: 0;
     }
 
-    /* ── CARD ── */
-    .card {
-      background: var(--white);
-      border: 1.5px solid var(--teal-border);
-      border-radius: 10px;
-      margin-bottom: 1.25rem;
-      overflow: hidden;
-      transition: box-shadow 0.15s, border-color 0.15s;
-      cursor: pointer;
-    }
-
-    .card:hover {
-      box-shadow: 0 4px 18px rgba(1,84,78,0.10);
-      border-color: var(--teal-mid);
-    }
-
-    .card.open {
-      border-color: var(--teal);
-      border-left: 4px solid var(--gold);
-    }
-
-    .card-header {
+    /* ── MAIN CONTENT AREA ── */
+    .main {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      padding: 1.1rem 1.25rem 0.9rem;
-      gap: 1rem;
+      flex: 1;
+      overflow: hidden;
     }
 
-    .card-header-left {
-      flex: 1;
+    /* ── LIST PANEL ── */
+    .list-panel {
+      width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 0.45rem;
+      border-right: 1.5px solid var(--teal-border);
+      transition: width 0.25s ease;
+      overflow: hidden;
+      flex-shrink: 0;
     }
 
-    .card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
+    .list-panel.compressed {
+      width: 38%;
+    }
+
+    .list-count {
+      padding: 0.6rem 1.25rem;
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--teal-border);
+      background: var(--white);
+      flex-shrink: 0;
+    }
+
+    .list-scroll {
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    /* ── LIST ROW ── */
+    .row {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid var(--teal-border);
+      cursor: pointer;
+      background: var(--white);
+      transition: background 0.1s;
+      gap: 0.75rem;
+    }
+
+    .row:hover { background: var(--row-hover); }
+
+    .row.active {
+      background: var(--teal-light);
+      border-left: 3px solid var(--gold);
+      padding-left: calc(1.25rem - 2px);
+    }
+
+    .row-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .row-date {
+      font-size: 0.68rem;
+      color: var(--teal-mid);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.2rem;
+    }
+
+    .row-title {
+      font-size: 0.875rem;
       font-weight: 600;
-      color: var(--teal);
-      line-height: 1.25;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .card-audience {
+    /* hide audience tags in compressed list view */
+    .row-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.3rem;
+      gap: 0.25rem;
+      margin-top: 0.3rem;
+    }
+
+    .list-panel.compressed .row-tags {
+      display: none;
     }
 
     .tag {
-      font-size: 0.62rem;
+      font-size: 0.58rem;
       font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
-      padding: 0.2rem 0.55rem;
+      padding: 0.15rem 0.45rem;
       border-radius: 20px;
       background: var(--teal-light);
       color: var(--teal);
       border: 1px solid var(--teal-border);
-    }
-
-    .card-date {
-      font-size: 0.72rem;
-      color: var(--ink-muted);
       white-space: nowrap;
-      letter-spacing: 0.04em;
+    }
+
+    .row-chevron {
+      color: var(--teal-border);
+      font-size: 0.9rem;
       flex-shrink: 0;
-      padding-top: 0.15rem;
+      transition: color 0.1s;
     }
 
-    .card-divider {
-      height: 1px;
-      background: var(--teal-light);
-      margin: 0 1.25rem;
-    }
+    .row:hover .row-chevron,
+    .row.active .row-chevron { color: var(--teal-mid); }
 
-    /* ── EXPANDED BODY ── */
-    .card-body {
+    /* ── DETAIL PANEL ── */
+    .detail-panel {
       display: none;
-      padding: 1.25rem 1.25rem 1.4rem;
+      flex: 1;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--white);
     }
 
-    .card-body.open { display: block; }
+    .detail-panel.open {
+      display: flex;
+    }
 
-    .card-image {
+    /* detail header strip */
+    .detail-header {
+      background: var(--teal);
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .detail-header-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+      flex: 1;
+    }
+
+    .detail-close {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-family: 'Inter', sans-serif;
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.1s;
+    }
+
+    .detail-close:hover { background: rgba(255,255,255,0.25); }
+
+    /* metadata bar */
+    .detail-meta {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--teal-border);
+      flex-shrink: 0;
+    }
+
+    .detail-meta-item {
+      padding: 0.6rem 1.25rem;
+      border-right: 1px solid var(--teal-border);
+    }
+
+    .detail-meta-item:last-child { border-right: none; }
+
+    .detail-meta-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .detail-meta-value {
+      font-size: 0.8rem;
+      color: var(--teal);
+      font-weight: 500;
+    }
+
+    .detail-meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      padding-top: 0.2rem;
+    }
+
+    /* scrollable body */
+    .detail-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.25rem;
+    }
+
+    .detail-image {
       width: 100%;
-      max-height: 560px;
+      max-height: 500px;
       object-fit: contain;
       border-radius: 6px;
-      margin-bottom: 1.1rem;
+      margin-bottom: 1.25rem;
       background: var(--teal-light);
+      display: block;
     }
 
-    .card-text {
+    .detail-text {
       font-size: 0.875rem;
       line-height: 1.75;
       color: var(--ink-soft);
     }
 
-    .card-text a { color: var(--teal); }
+    .detail-text a { color: var(--teal); }
+    .detail-text p + p { margin-top: 0.75rem; }
+    .detail-text ul, .detail-text ol {
+      margin: 0.5rem 0 0.5rem 1.25rem;
+      line-height: 2;
+    }
 
     /* ── EMPTY STATE ── */
     .empty {
       text-align: center;
-      padding: 4rem 1rem;
+      padding: 3rem 1rem;
       color: var(--ink-muted);
     }
 
-    .empty .icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.75rem;
-      opacity: 0.4;
-    }
+    .empty .icon { font-size: 2rem; margin-bottom: 0.5rem; opacity: 0.35; }
+    .empty p { font-size: 0.85rem; line-height: 1.6; }
 
-    .empty p {
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      body { overflow: auto; }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--teal);
-      text-align: center;
-      padding: 1.25rem;
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
+      .main { flex-direction: column; overflow: visible; }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      header { height: 60px; padding: 0 1rem; }
-      .hero { padding: 1.75rem 1rem 1.5rem; }
-      .page { padding: 1.5rem 1rem 3rem; }
-      .card-header { flex-direction: column; gap: 0.4rem; }
-      .card-date { padding-top: 0; }
+      .list-panel,
+      .list-panel.compressed { width: 100%; border-right: none; }
+
+      .list-scroll { overflow: visible; }
+
+      .detail-panel.open {
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        flex-direction: column;
+      }
+
+      .header-sub { display: none; }
+      .header-search { max-width: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .card { transition: none; }
+      .list-panel { transition: none; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="header-wordmark">
-      <span class="name">L'Ambiance</span>
-      <span class="sub">Longboat Key Club</span>
+    <div class="header-left">
+      <span class="header-title">Announcements</span>
+      <span class="header-sub">L'Ambiance at Longboat Key Club</span>
     </div>
-    <span class="header-label">Resident Portal</span>
+    <div class="header-search">
+      <input type="text" id="searchInput" placeholder="Search announcements…" oninput="renderList()" />
+    </div>
   </header>
 
-  <div class="hero">
-    <h1>Announcements</h1>
-    <p>Official notices and updates from association management</p>
-  </div>
+  <div class="gold-bar"></div>
 
-  <div class="page">
-    <div class="controls">
-      <div class="search-wrap">
-        <input type="text" id="searchInput" placeholder="Search by title, content, or audience…" oninput="renderAnnouncements()" />
-      </div>
+  <div class="main">
+
+    <!-- LIST -->
+    <div class="list-panel" id="listPanel">
+      <div class="list-count" id="countLine"></div>
+      <div class="list-scroll" id="announcementList"></div>
     </div>
 
-    <div class="count-line" id="countLine"></div>
-    <div id="announcementList"></div>
-  </div>
+    <!-- DETAIL -->
+    <div class="detail-panel" id="detailPanel">
+      <div class="detail-header">
+        <span class="detail-header-title" id="detailTitle"></span>
+        <button class="detail-close" onclick="closeDetail()">✕ Close</button>
+      </div>
+      <div class="detail-meta" id="detailMeta"></div>
+      <div class="detail-body" id="detailBody"></div>
+    </div>
 
-  <footer>
-    &copy; L'Ambiance at Longboat Key Club &nbsp;·&nbsp; Association Management
-  </footer>
+  </div>
 
   <script>
     const REPO_OWNER = 'OfficeLam';
     const REPO_NAME  = 'lambiance-announcements';
     const DATA_URL   = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/announcements.json`;
 
-    // ── SAMPLE DATA (used only when the JSON file is empty or for preview) ──
-    // In production, all data comes from announcements.json which Power Automate writes to.
     const SAMPLE = [
       {
         id: "sample-1",
         title: "Pool Closure — Resurfacing Work",
         dateSent: "2026-06-20T10:30:00",
-        audience: ["All Residents", "Building I Residents", "Building II Residents"],
-        body: "<p>Please be advised that the pool at both buildings will be closed from <strong>Monday, June 23rd through Friday, June 27th</strong> for scheduled resurfacing and tile repair work.</p><p style='margin-top:0.75rem'>We apologize for any inconvenience and appreciate your patience. The pool is expected to reopen over the weekend pending inspection. Questions may be directed to the management office.</p>",
+        audience: ["All Residents"],
+        body: "<p>Please be advised that the pool at both buildings will be closed from <strong>Monday, June 23rd through Friday, June 27th</strong> for scheduled resurfacing and tile repair work.</p><p>We apologize for any inconvenience and appreciate your patience. The pool is expected to reopen over the weekend pending inspection. Questions may be directed to the management office.</p>",
         imageUrl: ""
       },
       {
@@ -345,7 +435,7 @@
         title: "July 4th Parking & Noise Reminder",
         dateSent: "2026-06-18T09:00:00",
         audience: ["All Residents"],
-        body: "<p>With the holiday weekend approaching, management would like to remind all residents of the following:</p><ul style='margin-top:0.5rem;margin-left:1.25rem;line-height:2'><li>Guest parking is limited to designated visitor spaces only.</li><li>Quiet hours remain in effect after 10:00 PM per association rules.</li><li>Fireworks are not permitted on association property.</li></ul><p style='margin-top:0.75rem'>Enjoy the holiday!</p>",
+        body: "<p>With the holiday weekend approaching, management would like to remind all residents of the following:</p><ul><li>Guest parking is limited to designated visitor spaces only.</li><li>Quiet hours remain in effect after 10:00 PM per association rules.</li><li>Fireworks are not permitted on association property.</li></ul><p>Enjoy the holiday!</p>",
         imageUrl: ""
       },
       {
@@ -353,35 +443,50 @@
         title: "Lobby Floor Refinishing — Building II",
         dateSent: "2026-06-10T08:15:00",
         audience: ["Building II Residents", "Concierge", "Property Management"],
-        body: "<p>Contractors will be refinishing the main lobby floor in Building II on <strong>Thursday, June 12th</strong> beginning at 7:00 AM. Access through the main lobby entrance will be restricted until approximately 2:00 PM.</p><p style='margin-top:0.75rem'>Residents are asked to use the rear entrance during this time. Concierge staff will be on hand to assist.</p>",
+        body: "<p>Contractors will be refinishing the main lobby floor in Building II on <strong>Thursday, June 12th</strong> beginning at 7:00 AM. Access through the main lobby entrance will be restricted until approximately 2:00 PM.</p><p>Residents are asked to use the rear entrance during this time. Concierge staff will be on hand to assist.</p>",
+        imageUrl: ""
+      },
+      {
+        id: "sample-4",
+        title: "Hurricane Season Preparedness Reminder",
+        dateSent: "2026-06-01T08:00:00",
+        audience: ["All Residents"],
+        body: "<p>Hurricane season runs June 1 through November 30. Please ensure your unit is prepared: secure all balcony furniture, review your insurance coverage, and confirm your emergency contacts are on file with the management office.</p>",
+        imageUrl: ""
+      },
+      {
+        id: "sample-5",
+        title: "Elevator Maintenance — Building I",
+        dateSent: "2026-05-28T07:30:00",
+        audience: ["Building I Residents", "Concierge"],
+        body: "<p>Scheduled elevator maintenance will take place in Building I on <strong>Wednesday, June 4th</strong> from 8:00 AM to 12:00 PM. One elevator will remain in service at all times. We appreciate your patience.</p>",
         imageUrl: ""
       }
     ];
 
     let allAnnouncements = [];
+    let selectedId = null;
 
     async function loadData() {
       try {
         const res = await fetch(DATA_URL + '?t=' + Date.now());
         const json = await res.json();
         const live = json.announcements || [];
-        // If the live file has entries, use them. Otherwise fall back to sample data for preview.
         allAnnouncements = (live.length > 0 ? live : SAMPLE).sort(
           (a, b) => new Date(b.dateSent) - new Date(a.dateSent)
         );
-        renderAnnouncements();
+        renderList();
       } catch (e) {
-        // If fetch fails entirely (e.g. local preview), use sample data
         allAnnouncements = SAMPLE.sort((a, b) => new Date(b.dateSent) - new Date(a.dateSent));
-        renderAnnouncements();
+        renderList();
       }
     }
 
-    function renderAnnouncements() {
+    function renderList() {
       const query     = document.getElementById('searchInput').value.toLowerCase().trim();
       const container = document.getElementById('announcementList');
 
-      let filtered = allAnnouncements.filter(a => {
+      const filtered = allAnnouncements.filter(a => {
         if (!query) return true;
         return (
           (a.title || '').toLowerCase().includes(query) ||
@@ -391,7 +496,6 @@
       });
 
       document.getElementById('countLine').textContent =
-        filtered.length === 0 ? '' :
         filtered.length === 1 ? '1 announcement' :
         `${filtered.length} announcements`;
 
@@ -404,48 +508,74 @@
 
       container.innerHTML = '';
       filtered.forEach(a => {
-        const card = document.createElement('div');
-        card.className = 'card';
+        const row = document.createElement('div');
+        row.className = 'row' + (a.id === selectedId ? ' active' : '');
+        row.setAttribute('data-id', a.id);
 
         const d = new Date(a.dateSent);
-        const dateStr = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
         const tags = (a.audience || []).map(aud =>
           `<span class="tag">${escHtml(aud)}</span>`
         ).join('');
 
-        const imageBlock = a.imageUrl
-          ? `<img class="card-image" src="${escHtml(a.imageUrl)}" alt="Announcement flyer" loading="lazy" />`
-          : '';
-
-        card.innerHTML = `
-          <div class="card-header" onclick="toggleCard(this.closest('.card'))">
-            <div class="card-header-left">
-              <div class="card-title">${escHtml(a.title)}</div>
-              <div class="card-audience">${tags}</div>
-            </div>
-            <span class="card-date">${dateStr}</span>
+        row.innerHTML = `
+          <div class="row-content">
+            <div class="row-date">${dateStr}</div>
+            <div class="row-title">${escHtml(a.title)}</div>
+            <div class="row-tags">${tags}</div>
           </div>
-          <div class="card-divider"></div>
-          <div class="card-body">
-            ${imageBlock}
-            <div class="card-text">${a.body || ''}</div>
-          </div>
+          <span class="row-chevron">›</span>
         `;
 
-        container.appendChild(card);
+        row.addEventListener('click', () => openDetail(a));
+        container.appendChild(row);
       });
     }
 
-    function toggleCard(card) {
-      const body = card.querySelector('.card-body');
-      const isOpen = body.classList.contains('open');
-      document.querySelectorAll('.card-body.open').forEach(b => b.classList.remove('open'));
-      document.querySelectorAll('.card.open').forEach(c => c.classList.remove('open'));
-      if (!isOpen) {
-        body.classList.add('open');
-        card.classList.add('open');
-      }
+    function openDetail(a) {
+      selectedId = a.id;
+
+      // mark active row
+      document.querySelectorAll('.row').forEach(r =>
+        r.classList.toggle('active', r.getAttribute('data-id') === a.id)
+      );
+
+      // compress list
+      document.getElementById('listPanel').classList.add('compressed');
+      document.getElementById('detailPanel').classList.add('open');
+
+      // title
+      document.getElementById('detailTitle').textContent = a.title;
+
+      // meta bar
+      const d = new Date(a.dateSent);
+      const dateStr = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      const tags = (a.audience || []).map(aud => `<span class="tag">${escHtml(aud)}</span>`).join('');
+      document.getElementById('detailMeta').innerHTML = `
+        <div class="detail-meta-item">
+          <div class="detail-meta-label">Date</div>
+          <div class="detail-meta-value">${dateStr}</div>
+        </div>
+        <div class="detail-meta-item">
+          <div class="detail-meta-label">Audience</div>
+          <div class="detail-meta-tags">${tags}</div>
+        </div>
+      `;
+
+      // body
+      const imageBlock = a.imageUrl
+        ? `<img class="detail-image" src="${escHtml(a.imageUrl)}" alt="Announcement flyer" loading="lazy" />`
+        : '';
+      document.getElementById('detailBody').innerHTML = imageBlock +
+        `<div class="detail-text">${a.body || ''}</div>`;
+    }
+
+    function closeDetail() {
+      selectedId = null;
+      document.getElementById('listPanel').classList.remove('compressed');
+      document.getElementById('detailPanel').classList.remove('open');
+      document.querySelectorAll('.row.active').forEach(r => r.classList.remove('active'));
     }
 
     function escHtml(str) {
