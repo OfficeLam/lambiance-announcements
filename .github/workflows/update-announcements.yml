@@ -1,0 +1,52 @@
+name: Update Announcements
+
+on:
+  schedule:
+    # Runs every 15 minutes
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    # Also allows manual trigger from GitHub Actions tab
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository so we can read and write files
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Step 2: Set up Python — we'll use it to process the Sheet and Drive data
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # Step 3: Install the Google API client library
+      - name: Install dependencies
+        run: pip install google-api-python-client google-auth requests
+
+      # Step 4: Write the service account key to a temp file
+      - name: Write service account key
+        run: echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}' > /tmp/service_account.json
+
+      # Step 5: Run the main script that does all the work
+      - name: Update announcements
+        run: python .github/workflows/update_announcements.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DRIVE_FOLDER_ID: '1UehNayMinxEbK09-aXlk7_YP28KCahhQ'
+          SHEET_CSV_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTan0zoXAWHPuYXnA-XsHHizDkl7DVLYqlDV42_An-nwh44XTfsuNnPfxsHg_fOKNXqDSdF3iRlVSU1/pub?gid=0&single=true&output=csv'
+          REPO_OWNER: 'OfficeLam'
+          REPO_NAME: 'lambiance-announcements'
+
+      # Step 6: Commit and push any changes to announcements.json and new image files
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add announcements.json images/
+          git diff --staged --quiet || git commit -m "Auto-update announcements"
+          git push
