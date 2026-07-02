@@ -342,6 +342,44 @@
 
     .attachment-pdf-fallback a:hover { text-decoration: underline; }
 
+    /* Generic downloadable file card — used for anything that isn't an
+       image or PDF (Word docs, Excel files, or any other file type) */
+    .attachment-file {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: var(--teal-light);
+      border: 1.5px solid var(--teal-border);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.1s;
+    }
+
+    .attachment-file:hover { background: #DFEDEB; }
+
+    .attachment-file-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .attachment-file-info { min-width: 0; flex: 1; }
+
+    .attachment-file-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--teal);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .attachment-file-hint {
+      font-size: 0.68rem;
+      color: var(--ink-muted);
+      margin-top: 0.1rem;
+    }
+
     .detail-text {
       font-size: 0.875rem;
       line-height: 1.75;
@@ -430,9 +468,11 @@
 
     // ── SAMPLE DATA ──
     // attachments is an array. Each item has:
-    //   { url: "https://...", type: "image" }  — for JPG/PNG
-    //   { url: "https://...", type: "pdf" }    — for PDF
-    // Power Automate will populate this array when it writes to announcements.json.
+    //   { url: "https://...", type: "image", name: "..." }  — JPG/PNG/GIF/WEBP, renders inline
+    //   { url: "https://...", type: "pdf",   name: "..." }  — PDF, renders inline (embedded viewer)
+    //   { url: "https://...", type: "file",  name: "..." }  — anything else (docx, xlsx, etc.),
+    //                                                          renders as a downloadable file card
+    // update_announcements.py builds this array when it rebuilds announcements.json.
     // Empty array means no attachments — just body text shows.
     const SAMPLE = [
       {
@@ -442,7 +482,7 @@
         audience: ["All Residents"],
         body: "<p>The office will be closed <strong>Friday, July 3rd</strong> in observance of Independence Day. This is also a contractor lock-out date — no contractor or vendor access to units will be permitted.</p><p>For emergencies, please contact the concierge desk.</p>",
         attachments: [
-          { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1280px-Image_created_with_a_mobile_phone.png", type: "image" }
+          { url: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MDAiIGhlaWdodD0iNDUwIiB2aWV3Qm94PSIwIDAgODAwIDQ1MCI+CiAgPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiNFQUYyRjEiLz4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQzJEOEQ2IiBzdHJva2Utd2lkdGg9IjQiLz4KICA8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IkludGVyLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iNjAwIiBmaWxsPSIjMDE1NDRFIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TYW1wbGUgQXR0YWNobWVudDwvdGV4dD4KICA8dGV4dCB4PSI0MDAiIHk9IjI1MCIgZm9udC1mYW1pbHk9IkludGVyLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE1IiBmaWxsPSIjNDE3MzcxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5SZWFsIGF0dGFjaG1lbnRzIHdpbGwgYXBwZWFyIGhlcmUgb25jZSBhbm5vdW5jZW1lbnRzLmpzb24gaGFzIGxpdmUgZGF0YTwvdGV4dD4KPC9zdmc+", type: "image", name: "sample.svg" }
         ]
       },
       {
@@ -573,9 +613,11 @@
       `;
 
       // Build attachments block
-      // Each attachment is { url, type } where type is "image" or "pdf"
-      // Images render as <img>, PDFs render as <iframe> on desktop
-      // and a download link on mobile (handled via CSS)
+      // Each attachment is { url, type, name } where type is "image", "pdf", or "file".
+      // Images render as <img>, PDFs render as <iframe> on desktop + a fallback
+      // link on mobile, and everything else ("file" — docx, xlsx, or any other
+      // type) renders as a generic downloadable file card so nothing ever
+      // silently fails to show up.
       const attachments = a.attachments || [];
       const attachmentHTML = attachments.map(att => {
         if (att.type === 'pdf') {
@@ -587,10 +629,23 @@
               </div>
             </div>
           `;
-        } else {
+        } else if (att.type === 'image') {
           return `
             <div class="attachment-block">
               <img class="attachment-image" src="${escHtml(att.url)}" alt="Announcement attachment" loading="lazy" />
+            </div>
+          `;
+        } else {
+          const label = att.name || 'Download attachment';
+          return `
+            <div class="attachment-block">
+              <a class="attachment-file" href="${escHtml(att.url)}" target="_blank" rel="noopener" download>
+                <span class="attachment-file-icon">📎</span>
+                <span class="attachment-file-info">
+                  <span class="attachment-file-name">${escHtml(label)}</span>
+                  <span class="attachment-file-hint">Tap to download</span>
+                </span>
+              </a>
             </div>
           `;
         }
