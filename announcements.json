@@ -1,3 +1,20 @@
 {
-  "announcements": []
+  "announcements": [
+    {
+      "id": "849f9eed-71d3-4d67-84fd-57e3ead9335e",
+      "title": "TEST # 11",
+      "dateSent": "2026-07-02T19:23:51",
+      "audience": [
+        "Property Manager"
+      ],
+      "body": "<p>This is a test, please disregard.</p><p>The Management Team<br>L’Ambiance at Longboat Key Club, Inc.<br>941.383-0492 - T<br>941.383-9051- F<br>info@lambiancelbk.com<br>www.LAmbianceLBK.com[https://sg.appfolio.com/wf/open?upn=u001.e8GW-2BB0QkxBEp7d1V4MfnYS8dxFlQt3WAkOzGPmrU-2BhBndWgJS-2BDrlrSqGucNFILDoHCizRyIX8A23DDI4s5cxLB3zEjJWX5DIybs3f6YjHRQxlfqTLYQEr5uTh69F33bvCsJL4DG1pmwBCWOzxK2Om3lr5a7wZefT9qt-2Bs9rLS0xch1EkWskLUAyfN3nW8Vnfa3p1talhbXHgEQLDmdHLbRZhRou6l3rPWSNUi66PKJ2vINJ5oGFlVOWPY6L-2Fl8CsCdEiGWFD-2F5w4a8AjrQCRjFMDonTN12INvqxKTTaAoOfpCIbFLtpjxaiKxpjK1hM8fcQNoE6tbPlr3Aw-2BqVIWLR-2BExxQaKy2t9UHRAnAdRzITUxOA2WdhZoOoaWL1C51BOmKbvhMi8CyicLeaIvliw-2Fr1Jx193T-2BjQ38GXiaeZoFhlWFcgQdkx8jxiQwpx-2FM-2BMR9YRqO39cCeDn0ACrKAaT5e1cOGAxmBz7OGE-2FPS8Ws9AWpuutHjNzPX9n-2BeLY]</p>",
+      "attachments": [
+        {
+          "url": "https://raw.githubusercontent.com/OfficeLam/lambiance-announcements/main/images/13qJOLL99p_P8wU7s9hwnKGMsj1-QjdVL.jpg",
+          "type": "image",
+          "name": "bcf6fe88-b455-4022-aca2-767bcbb4ceb4-Town Manager Brief - July 2026.jpg"
+        }
+      ]
+    }
+  ]
 }
