@@ -1,68 +1,6 @@
 {
   "announcements": [
     {
-      "id": "849f9eed-71d3-4d67-84fd-57e3ead9335e",
-      "title": "TEST # 11",
-      "dateSent": "2026-07-02T19:23:51",
-      "audience": [
-        "Property Manager"
-      ],
-      "body": "<p>This is a test, please disregard.</p><p>The Management Team<br>L’Ambiance at Longboat Key Club, Inc.<br>941.383-0492 - T<br>941.383-9051- F<br>info@lambiancelbk.com<br>www.LAmbianceLBK.com[https://sg.appfolio.com/wf/open?upn=u001.e8GW-2BB0QkxBEp7d1V4MfnYS8dxFlQt3WAkOzGPmrU-2BhBndWgJS-2BDrlrSqGucNFILDoHCizRyIX8A23DDI4s5cxLB3zEjJWX5DIybs3f6YjHRQxlfqTLYQEr5uTh69F33bvCsJL4DG1pmwBCWOzxK2Om3lr5a7wZefT9qt-2Bs9rLS0xch1EkWskLUAyfN3nW8Vnfa3p1talhbXHgEQLDmdHLbRZhRou6l3rPWSNUi66PKJ2vINJ5oGFlVOWPY6L-2Fl8CsCdEiGWFD-2F5w4a8AjrQCRjFMDonTN12INvqxKTTaAoOfpCIbFLtpjxaiKxpjK1hM8fcQNoE6tbPlr3Aw-2BqVIWLR-2BExxQaKy2t9UHRAnAdRzITUxOA2WdhZoOoaWL1C51BOmKbvhMi8CyicLeaIvliw-2Fr1Jx193T-2BjQ38GXiaeZoFhlWFcgQdkx8jxiQwpx-2FM-2BMR9YRqO39cCeDn0ACrKAaT5e1cOGAxmBz7OGE-2FPS8Ws9AWpuutHjNzPX9n-2BeLY]</p>",
-      "attachments": [
-        {
-          "url": "https://raw.githubusercontent.com/OfficeLam/lambiance-announcements/main/images/13qJOLL99p_P8wU7s9hwnKGMsj1-QjdVL.jpg",
-          "type": "image",
-          "name": "bcf6fe88-b455-4022-aca2-767bcbb4ceb4-Town Manager Brief - July 2026.jpg"
-        }
-      ]
-    },
-    {
-      "id": "482b8db9-d1a0-49cb-925d-15c98d4e2072",
-      "title": "TEST #13",
-      "dateSent": "2026-07-06T17:43:38",
-      "audience": [
-        "Property Manager"
-      ],
-      "body": "<p>This is a test, please disregard.</p><p>Best,</p><p>The Management Team<br>L’Ambiance at Longboat Key Club, Inc.<br>941.383-0492 - T<br>941.383-9051- F<br>info@lambiancelbk.com<br>www.LAmbianceLBK.com[https://sg.appfolio.com/wf/open?upn=u001.e8GW-2BB0QkxBEp7d1V4MfnYS8dxFlQt3WAkOzGPmrU-2BhBndWgJS-2BDrlrSqGucNFILDoHCizRyIX8A23DDI4s5cxLB3zEjJWX5DIybs3f6YjHRQxlfqTLYQEr5uTh69F33bvCsJL4DG1pmwBCWOzxK2Om3lr5a7wZefT9qt-2Bs9rLSW30bBhb6Ql8lITUjkLeiYl-2BgdWP0LiDZX-2BYaoGLZGbgbhH0-2Foh0qZNSYsq-2B8c6g7u-2F1CasE6B-2BGJHr2xDek07My9j3K1M5EqGDinbSA-2B2Fk2Ud55p0zG2qSSMMz-2BvpLaaDXBClN0bpVScMER-2BTxIXLjdqTSVOViSlnoStcvw1wiTTOZbCZOh27-2B3AukRenLsU8msC7vLztp0T1LzPjDggXKuJXX5N9oJvBzFBHy1bbFh3SCwlotXLdhXaEg-2FEadPnQHpoR5IewmgNbRp8EicoTYbf5RYhL0T5yKmHQJ6MchUoadb6Ua-2BQ6UVF9gbRD6u24E0GmMdl9iFfPbpRSQrMwdxu8zh4Q05lxSW5H7GQ6g-3D-3D]</p>",
-      "attachments": [
-        {
-          "url": "https://raw.githubusercontent.com/OfficeLam/lambiance-announcements/main/images/1vjlQSFhJbLae-0fhQlBStSonI1c2rL_e.png",
-          "type": "image",
-          "name": "14225052-bf1b-4a87-b6e8-2d2b18d159d6-Screenshot 2026-07-06 132655.png"
-        }
-      ]
-    },
-    {
-      "id": "4e9c2ebd-75a2-47c5-82e1-991bd808ba93",
-      "title": "Text Message Failed to be Delivered to Rosalind M. Cook",
-      "dateSent": "2026-07-07T18:48:51",
-      "audience": [
-        "Property Manager"
-      ],
-      "body": "<p>AppFolio Property Manager<br>[https://public.cdn.appfolio.com/public/images/apm-primary-horizontal-white-bg.png]</p><p>TEXT MESSAGE FAILED TO BE DELIVERED TO ROSALIND M. COOK</p><p>The message failed to be delivered for the following reason:<br>The destination number is unable to receive this message. Potential reasons<br>could include trying to reach a landline or, in the case of short codes, an<br>unreachable carrier.</p><p>To Rosalind M. Cook (941) 387-9614 - on July 07 at 01:47 PM<br>Hi Rosalind, L&#x27;Ambiance at Longboat Key Club Condo Assoc. has invited you to<br>activate your Online Portal account at https://appfol.io/j5X4Z9l2. You have 72<br>hours to activate it. Reply STOP to unsubscribe.<br>View this message<br>[https://sg.appfolio.com/ls/click?upn=u001.-2FiczBxQBdnWuCrMU11aFfRBbu2qS1pnzqGXznyz2QDxamC5TrzkemwqFIeYX1OjzBbqgQJ-2Fq-2F-2F1a9Whj-2FNfeBKisStTjBuR-2FOZlw-2BqYGvjM-3DDxae_BebZuezS3VhqDx98Otg8WIOrrmvahK6LZr4Yo2zsgN3nRI9Ut3-2FVFSVsJ2QldirvuPBJvEvJyGgw7PVWZSRks1ta4mjd0jnUnLp2iMKByc06-2Fj-2BFhErruV7H4Ocyv9-2F0towifGNbIzRU3SQvi9yBmfzjeQ02mr3SH8JPzZAK3nWZxArxAYA2syJTzj7lzfv40aYCHV6p-2BBIeD-2FRKGbr2womkP1HqHoMZfdjKQPq2z8QIOGcczgT8EbIUuEOH-2FuXc7SExWqaiE2CWhcHp4IgRB7dbZ1Wl6V0D7HGZ6fbKvDHd9uZv7wPAgZjOV3fjTejUzGCdo9sw65o-2Bi1aIwnnnEeHFRSTo2qPPlIPpLIGw1Ae-2FRMMagZBUcaZabDh-2BMY7ZA-2B7DpGwdb55JFHlBrBkN3zr3e7wU6z1zuILmjPxohmSFOq4iMGhOhMqX95cbGaKjpIxsOmlb-2BcrlnRnl2Pddi-2Fb7kpRtm7mNMz6s7-2FmlekX58DFs-2FfBiL-2BOFyLErYlqtIwJ4axLJ3oCsr7pl5-2BwmfXdGl94U9STcTijPamOixdE-3D]</p><p>AppFolio Property Manager70 Castilian Dr., Santa Barbara, CA 93117866.648.1536©<br>2026 AppFolio, Inc.</p><p>[https://sg.appfolio.com/wf/open?upn=u001.e8GW-2BB0QkxBEp7d1V4MfnYS8dxFlQt3WAkOzGPmrU-2BhBndWgJS-2BDrlrSqGucNFILDoHCizRyIX8A23DDI4s5cxLB3zEjJWX5DIybs3f6YjHRQxlfqTLYQEr5uTh69F33bvCsJL4DG1pmwBCWOzxK2Om3lr5a7wZefT9qt-2Bs9rLSq6oYA4I3o5eDInUYVOehovNbDWdDXbhsjGXrF48hur2GwNVWkxyP6FgmEy-2BCGydSk1om6A9nCB-2BYQXjC9Qhyrf-2BUvrVSnXrxRwRL4qAHdC-2Bd8a4lYahiNOHBssyPkv7i-2F9X5qrD2RzjErgoX3mSMW7a8ftlREkqlBXERcp3NVG9Cm-2FPsUJXyuLuOpVowTu7AS1p8mWjfcm8Bo3jIQFO6zerl4AMrr2Ta82OY6WYJrUSOGP-2FVB4hV4VHmji-2FrXs6haxZ43m3slv9L-2BpPKeLEznQ3k7A-2B1VJAdEBz3V7B4DDreakdL0z9o9oUxR6RJ0WD7f-2FsLrptgH-2FOpW3gUeFlhyjmleXNLH-2BTFCmX8o7PRk9Yr6vaAEkfKAkDLEH8Q1Pc4-3D]</p>",
-      "attachments": []
-    },
-    {
-      "id": "eb8d6ffe-d899-47c7-8ba7-7eb27831f415",
-      "title": "Maintenance Cancelation Requested for Service Request #65010 L'Ambiance at Longboat Key Club Condominium Association, Inc. - A301",
-      "dateSent": "2026-07-27T18:11:52",
-      "audience": [
-        "Property Manager"
-      ],
-      "body": "<p>AppFolio Property Manager<br>[https://public.cdn.appfolio.com/public/images/apm-primary-horizontal-white-bg.png]</p><p>MAINTENANCE CANCELATION REQUEST RECEIVED:</p><p>DETAILS</p><p>Property: L&#x27;Ambiance at Longboat Key Club Condominium Association, Inc. - A301<br>Tenant: Rutledge Family Trust</p><p>JOB DESCRIPTION</p><p>Please give access to Conditioned Air tomorrow (July 28) between 8-10 am for<br>hvac maintenance. Thanks.</p><p>CANCELATION REASON</p><p>AC</p><p>View this work order<br>[https://sg.appfolio.com/ls/click?upn=u001.-2FiczBxQBdnWuCrMU11aFfRBbu2qS1pnzqGXznyz2QDxNIW90Z2Yt-2BuF5W3fPI3CR42EGc-2BYobteReiPYbdl3gWoNMW4xbImMqRSExZ0gwONkRqUGo31ba4Kn6x2fA3DQPhpY_BebZuezS3VhqDx98Otg8WIOrrmvahK6LZr4Yo2zsgN3nRI9Ut3-2FVFSVsJ2QldirvuPBJvEvJyGgw7PVWZSRks1ta4mjd0jnUnLp2iMKByc06-2Fj-2BFhErruV7H4Ocyv9-2F0towifGNbIzRU3SQvi9yBmfzjeQ02mr3SH8JPzZAK3nUDlt6FzcYwi0cMvwyT3T5S-2FcK1k0WdFTvFJOitla2c4EQYeePAq5BtGXWPkIXL7nU4JKsaubmibY-2BFPxZHkxIWUVZ-2FUVa1jx55AE5O0bGjyrN8eUEwZL8Ez-2FbNUXaRSyYkOsmB3rq-2BzNUghlnUxBP7U37KPDB3pLoUIMfml3ph8q5x-2BnG392LlMBqG1JjqU4Y355eZTnbkvzk1YOENfa2iS0vXhaKOvSCR0i-2BzdCLlnOXrKdKPalCO2-2FsQH6sdReEJABsLQybsyOg-2BmKCKozxsaK964fGftxeN2Ueug-2FDlWi0L-2Byi0l1v6kz6CHGXHDdQMkjdPuvzD9MawXEoulwZl-2FH3De9VDp5vZzBQ6fJ32L74CySBgSHmxI97Tsq47PnuSMTpc3wilkGOuFk8UhVG4en-2BR-2BN8Z3D400NBbrSToE2ZCxnRajLXpJP4defLSiqeqgxqAGr25NgED2qN-2Fiam32jxpVtHnZbYasBHgHYI7bLa23JoxE7gWKIve-2BCCPMCA-3D]</p><p>If you would like to stop receiving these emails, please edit your notification<br>settings<br>[https://sg.appfolio.com/ls/click?upn=u001.-2FiczBxQBdnWuCrMU11aFfRBbu2qS1pnzqGXznyz2QDyWNsb2MQHaYJyECK2Zqm0GF-2Bu6n23HjOTk-2FjP3AZwJ7g-3D-3Dj7Cq_BebZuezS3VhqDx98Otg8WIOrrmvahK6LZr4Yo2zsgN3nRI9Ut3-2FVFSVsJ2QldirvuPBJvEvJyGgw7PVWZSRks1ta4mjd0jnUnLp2iMKByc06-2Fj-2BFhErruV7H4Ocyv9-2F0towifGNbIzRU3SQvi9yBmfzjeQ02mr3SH8JPzZAK3nUDlt6FzcYwi0cMvwyT3T5S-2FcK1k0WdFTvFJOitla2c4EQYeePAq5BtGXWPkIXL7nU4JKsaubmibY-2BFPxZHkxIWUVZ-2FUVa1jx55AE5O0bGjyrN8eUEwZL8Ez-2FbNUXaRSyYkOsmB3rq-2BzNUghlnUxBP7U37KPDB3pLoUIMfml3ph8q5x-2BnG392LlMBqG1JjqU4Y355eZTnbkvzk1YOENfa2iS0vXhaKOvSCR0i-2BzdCLlnOXrKdKPalCO2-2FsQH6sdReEJABsLQybsyOg-2BmKCKozxsd4Ts2ctc2GH8defFU1w56jGYNEiSp-2B-2Frny60oihCOMPVHSjgPYBuV-2BCXqwuw-2FoVOgbxNncpUVHDaga7W3RuuSaXOFlwwhOL0RCAlkuZCXlsTVypGv08dSvAvUKBvcttvne6FZ-2FecXLd6c3bqb7WyTT1RzjRufam2ggZdEJ-2Buw9XqO0c7EiFq2NpBSY1cezNccxJ19lHQgTLOMhJCaFsOHc4tvkpvL5pmD0HWfwmLGek-3D]</p><p>AppFolio Property Manager70 Castilian Dr., Santa Barbara, CA 93117866.648.1536©<br>2026 AppFolio, Inc.</p><p>[https://sg.appfolio.com/wf/open?upn=u001.e8GW-2BB0QkxBEp7d1V4MfnYS8dxFlQt3WAkOzGPmrU-2BhBndWgJS-2BDrlrSqGucNFILDoHCizRyIX8A23DDI4s5cxLB3zEjJWX5DIybs3f6YjHRQxlfqTLYQEr5uTh69F33bvCsJL4DG1pmwBCWOzxK2Om3lr5a7wZefT9qt-2Bs9rLSGOWaBLXiPSkCDVyc5hOytnIQYO8hhG0UkWKvUcVX14Ga177tVAWDPw8eDOG4sFtfqArkTrw-2BLWkWXpQOkGt8d8RRhPPfl-2BsqosxRBL5e8D5qsL9ckSMy0LELnEh0nkY-2BE9mYmRAaazT1muCgNIZbMWewQQ7Ixg1R-2Bmlbu4Qo3HQZ7JwsVqAzytFnSqX9CC1RctTbyh5WDN98FitQY3aM4qFT5738iuPwU9kZi1Rdgh292UnVQqWrA7qFJUcBVG4EN7MHKlSef0zndZAhottvpQVTJmF6lwli-2BsW7RTqe3GBQAndSc8xqQatW8io3Ewsg7tUjAZF3HWk5Fhji5nKVS6czpSvhcTz-2BbwEqCHYWoDxQYyWSp21yUGH19jMBf5zZ0lceL2gLtuodmd3AkSXtLbjCLtbQJ3fjj-2BZDz2ZACwV0E2KbShIA3umUESqHEAEglkWGkeOGxL-2BFqe3MXvo043yBXF-2Bay2BknQ-2FrGtCpgV-2BNNFNdPl8DFbtC2cCmSI58-3D]</p>",
-      "attachments": []
-    },
-    {
-      "id": "90564a28-b347-4c88-94c0-586145c5f33c",
-      "title": "Maintenance Cancelation Requested for Service Request #65010 L'Ambiance at Longboat Key Club Condominium Association, Inc. - A301",
-      "dateSent": "2026-07-27T18:11:51",
-      "audience": [
-        "Property Manager"
-      ],
-      "body": "<p>AppFolio Property Manager<br>[https://public.cdn.appfolio.com/public/images/apm-primary-horizontal-white-bg.png]</p><p>MAINTENANCE CANCELATION REQUEST RECEIVED:</p><p>DETAILS</p><p>Property: L&#x27;Ambiance at Longboat Key Club Condominium Association, Inc. - A301<br>Tenant: Rutledge Family Trust</p><p>JOB DESCRIPTION</p><p>Please give access to Conditioned Air tomorrow (July 28) between 8-10 am for<br>hvac maintenance. Thanks.</p><p>CANCELATION REASON</p><p>AC</p><p>View this work order<br>[https://sg.appfolio.com/ls/click?upn=u001.-2FiczBxQBdnWuCrMU11aFfRBbu2qS1pnzqGXznyz2QDxNIW90Z2Yt-2BuF5W3fPI3CR42EGc-2BYobteReiPYbdl3gWoNMW4xbImMqRSExZ0gwONkRqUGo31ba4Kn6x2fA3DQiHxS_BebZuezS3VhqDx98Otg8WIOrrmvahK6LZr4Yo2zsgN3nRI9Ut3-2FVFSVsJ2QldirvuPBJvEvJyGgw7PVWZSRks1ta4mjd0jnUnLp2iMKByc06-2Fj-2BFhErruV7H4Ocyv9-2F0towifGNbIzRU3SQvi9yBmfzjeQ02mr3SH8JPzZAK3nUliDTRdVj8-2Fbw7arXH0t6jU1QKeb4uKWo7GOLMgLWoF3NrZm4mjKjU9ZkawpPFfTgfiNMoEfn9U2QQRJm3aJeLu2M-2BFIwAPUvzbn-2BS-2BO-2Bw4-2BxN06-2BDodrdCWf37D8eYKBRqcWrXTfna7zUehj-2FVe5n3Gbr6XhQFIt9zSlY8iZOX-2FWVzOIUR2ClR-2FK4MN4-2Bv-2BsnZlICE8zyGc4rddRgavstUAFHckV1DEP2o9nUL6r25JmpXjMo9wDwGNENo9xPCBvWomyfN7yZgYPQXsZ4AfXp-2Bpi1S8TaLkZ6LqtUJvVoS9R7Gu4aqoVHn0sQs8mhZHeHPMsX2BEHu7nZTM4nLOjsaH01QK5eTfcof1HNCCxu2n968nHmOzC4hvGAKfrbgs09HvI5GS2RHLFjZcrBpqIcZn0I-2Fotk0kTzgmAPIYowSpPgOXKEYOpETFa9RtO-2Bf7wrBIVmX9juHC7jCqA6q-2BrbqSOLnvTRthzZR-2B4s2j8q0PJUF5QbKeiXUZRme59u954-3D]</p><p>If you would like to stop receiving these emails, please edit your notification<br>settings<br>[https://sg.appfolio.com/ls/click?upn=u001.-2FiczBxQBdnWuCrMU11aFfRBbu2qS1pnzqGXznyz2QDyWNsb2MQHaYJyECK2Zqm0GF-2Bu6n23HjOTk-2FjP3AZwJ7g-3D-3Dz_Fl_BebZuezS3VhqDx98Otg8WIOrrmvahK6LZr4Yo2zsgN3nRI9Ut3-2FVFSVsJ2QldirvuPBJvEvJyGgw7PVWZSRks1ta4mjd0jnUnLp2iMKByc06-2Fj-2BFhErruV7H4Ocyv9-2F0towifGNbIzRU3SQvi9yBmfzjeQ02mr3SH8JPzZAK3nUliDTRdVj8-2Fbw7arXH0t6jU1QKeb4uKWo7GOLMgLWoF3NrZm4mjKjU9ZkawpPFfTgfiNMoEfn9U2QQRJm3aJeLu2M-2BFIwAPUvzbn-2BS-2BO-2Bw4-2BxN06-2BDodrdCWf37D8eYKBRqcWrXTfna7zUehj-2FVe5n3Gbr6XhQFIt9zSlY8iZOX-2FWVzOIUR2ClR-2FK4MN4-2Bv-2BsnZlICE8zyGc4rddRgavstUAFHckV1DEP2o9nUL6r25JmpXjMo9wDwGNENo9xPCBvWomyfN7yZgYPQXsZ4AfXpeAzcnjPRHR7Y-2F2MFKq9uWw63gVnp4IWNpXqLPGTpVdf9WVR-2Ffa-2BL6JNep6dhx-2BVSPFropWoMnbgj0yXA2RyFHXDrkPKJqPpdx41tZkO8e9MHY-2BWUQ0C-2FOwEJd5tEF8JyHXH9XwhvDf9CDoZ77pPl3CquHLgkKiX0Agz7kyx2GD52wS4YLon0gSy-2Bq9RkB8NvxOW03OTkHF9sNkDeDJipBpFF4QP8E9BQJt-2B3TGRpgtc-3D]</p><p>AppFolio Property Manager70 Castilian Dr., Santa Barbara, CA 93117866.648.1536©<br>2026 AppFolio, Inc.</p><p>[https://sg.appfolio.com/wf/open?upn=u001.e8GW-2BB0QkxBEp7d1V4MfnYS8dxFlQt3WAkOzGPmrU-2BhBndWgJS-2BDrlrSqGucNFILDoHCizRyIX8A23DDI4s5cxLB3zEjJWX5DIybs3f6YjHRQxlfqTLYQEr5uTh69F33bvCsJL4DG1pmwBCWOzxK2Om3lr5a7wZefT9qt-2Bs9rLTGHb9pEQi0GYzxqKyK6VbXg8AtRGOZuJPUbsueErZcj3mq2kbKXRFUQhCbAf01qH8nSUE4LPYkHJq6hXpwtmZCUso1F9lqaOtMSxQvGsPmvYzdpeUS5fNDvOu-2FV7db8g1aE0MbJvbixMsTCKdemDp9W9v68aIaAWfggksZgdFL-2FGRwxXW3gczIUPrevasv79S5vGmnP-2FPge-2FKbcefN4fxLnQFvJGwYF3WU2jJAgTUoV6SDcxq9gXaXqk8SUaD9k8J4oWIXu9DIgle5P5y-2F0jnpn1NpdmdYv1xigwAS3GzGwnk8x6UleazCOlezbdhlu3RwpqA81V9REMgQkb-2BbzNR3YZ7J5IEKeHQgUlip9lRNssChJrE0R047UglYfXdb0WyXcjbDabw-2FAos-2FG7mPGGVK82jpzTYD3dzrk34lpHMi4BWpKEoLBNRwfqRPoRFrh4fDBsoU0MUu41JMGmNT80OjA23LMTpmGeBeCsUi6hl235KZxHZu9JJNQBmRLHmiOzc-3D]</p>",
-      "attachments": []
-    },
-    {
       "id": "9e6ff8fd-d13c-4584-8b41-15acd1c37c1b",
       "title": "Notice of Special Membership Meeting - August 20, 2026",
       "dateSent": "2026-07-31T16:53:37",
@@ -77,52 +15,6 @@
           "name": "88bca304-1947-4291-a912-eb68ebb3109d-26-07-28 - Special Membership Meeting Notice - v6 - Final.pdf"
         }
       ]
-    },
-    {
-      "id": "22c9a069-4296-4587-93cb-53dc48128686",
-      "title": "Your mail could not be delivered",
-      "dateSent": "2026-07-31T16:55:47",
-      "audience": [
-        "Property Manager"
-      ],
-      "body": "<p>Unfortunately, we could not deliver your email with subject &#x27;Notice of Special<br>Membership Meeting - August 20, 2026&#x27; to its intended recipients:<br>amiller@UniroyalGlobal.com Reason: Failed to deliver - Rejected by recipient&#x27;s<br>mail server</p>",
-      "attachments": []
-    },
-    {
-      "id": "05f61792-dec0-44f8-9901-58f8e18ee1af",
-      "title": "Notice of Special Membership Meeting - August 20, 2026",
-      "dateSent": "2026-07-31T16:55:50",
-      "audience": [
-        "Property Manager"
-      ],
-      "body": "<p>Dear Owners,</p><p>Attached please find the official notice for the Special Membership Meeting to<br>be held on Thursday, August 20, 2026, at 10:00 AM in the Building I Recreation<br>Room, immediately followed by the Board of Directors&#x27; Meeting. Both meetings<br>will also be available via Zoom.</p><p>The sole purpose of the Special Membership Meeting is to vote on a proposed<br>$2,500,000 revolving line of credit to fund the accelerated balcony<br>waterproofing project.</p><p>The attached packet includes the full meeting notice, agenda, background<br>information on the proposed line of credit, a Limited Proxy with Ballot, and a<br>Voting Certificate (required only for units with multiple owners, to designate a<br>single authorized voter). If you are unable to attend in person, please complete<br>and return the enclosed proxy as early as possible to help us establish a quorum<br>and tabulate votes.</p><p>This same packet is also being sent to all owners via physical mail this week,<br>including a return envelope for the completed Proxy and, if applicable, the<br>signed Voting Certificate.</p><p>Sincerely,</p><p>Ian Wilbraham, President<br>By Order of the Board of<br>Directors[https://sg.appfolio.com/wf/open?upn=u001.e8GW-2BB0QkxBEp7d1V4MfnYS8dxFlQt3WAkOzGPmrU-2BhBndWgJS-2BDrlrSqGucNFILDoHCizRyIX8A23DDI4s5cxLB3zEjJWX5DIybs3f6YjHRQxlfqTLYQEr5uTh69F33bvCsJL4DG1pmwBCWOzxK2Om3lr5a7wZefT9qt-2Bs9rLTV51CyDWo7mwK-2BGfHVJ2qZ5VxbiBEwYDp884DjTS5F7O2Kd4GEN-2FJ1GME6ZWP4oNmD1-2BmVSxn3f4qyHKQeJzRqUVNSIGWOiuP-2FgX0BFRAgAnzT0K0V-2FgNkRpdUnPM0FqvjXLpgwIT1IVOLgXEzz9u3D-2BumCzkEqY8wHPnej9IRF1nG51wH7gDjuRcolL37ukPlkhBEmNVODErKFhJKcvVh-2Bszwy5VE9THLfz38-2BGlGacnME8NwmOuxjjbYprELTcw3WXKs-2BcDG2YKnRuCT7B4nco49ulZbQAQuIxbxprNOvX2ZiAHY89rCeadnfaoU0DUQ9sppl5ZbuP07hS8XKaUsbLrNVNhqCwv3WZ9yuJIlqx6cXDukI0k1novUDsAgM5yqpR7jP9TPF004-2BBEq3oS0]</p>",
-      "attachments": [
-        {
-          "url": "https://raw.githubusercontent.com/OfficeLam/lambiance-announcements/main/images/1hVaGV11yosLP3joQ9wgfHX6I9qO-63A4.pdf",
-          "type": "pdf",
-          "name": "05515c8d-d1b5-4c6a-a4d2-afa74b7bf901-26-07-28 - Special Membership Meeting Notice - v6 - Final.pdf"
-        }
-      ]
-    },
-    {
-      "id": "ca8008a6-5f87-4c0d-8eb8-7ed71b558eaf",
-      "title": "Your mail could not be delivered",
-      "dateSent": "2026-07-31T16:59:45",
-      "audience": [
-        "Property Manager"
-      ],
-      "body": "<p>Unfortunately, we could not deliver your email with subject &#x27;Notice of Special<br>Membership Meeting - August 20, 2026&#x27; to its intended recipients:<br>rick.marcicki@lbk.com Reason: Failed to deliver - Rejected by recipient&#x27;s mail<br>server</p>",
-      "attachments": []
-    },
-    {
-      "id": "2f8ee90c-2ce1-46a0-a7b8-95b793cc017e",
-      "title": "Your mail could not be delivered",
-      "dateSent": "2026-07-31T17:53:05",
-      "audience": [
-        "Property Manager"
-      ],
-      "body": "<p>Unfortunately, we could not deliver your email with subject &#x27;Notice of Special<br>Membership Meeting - August 20, 2026&#x27; to its intended recipients:<br>john.caruso@lbk.com Reason: Failed to deliver - Rejected by recipient&#x27;s mail<br>server</p>",
-      "attachments": []
     }
   ]
 }
