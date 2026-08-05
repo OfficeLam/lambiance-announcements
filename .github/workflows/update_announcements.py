@@ -173,6 +173,9 @@ def text_to_html(raw_text):
     raw_text = (raw_text or "").strip()
     if not raw_text:
         return ""
+    # Power Automate's "Html to text" step renders <a href="URL">text</a> as
+    # "text[URL]" -- strip the bracketed tracking URL, keep the visible text.
+    raw_text = re.sub(r"\[https?://[^\]\s]+\]", "", raw_text)
     escaped = html.escape(raw_text)
     paragraphs = re.split(r"\n\s*\n", escaped)
     html_paragraphs = [
@@ -333,7 +336,7 @@ def main():
     require_env()
 
     global RAW_BASE
-    RAW_BASE = f"https://raw.githubusercontent.com/{os.environ['REPO_OWNER']}/{os.environ['REPO_NAME']}/main"
+    RAW_BASE = "https://officelam.github.io/lambiance-announcements"
 
     os.makedirs(IMAGES_DIR, exist_ok=True)
 
