@@ -655,8 +655,8 @@
         ? `<div class="detail-text">${a.body}</div>`
         : '';
 
-      // Attachments first, then body text
-      document.getElementById('detailBody').innerHTML = attachmentHTML + bodyText;
+      // Body text first, then attachments
+      document.getElementById('detailBody').innerHTML = bodyText + attachmentHTML;
     }
 
     function closeDetail() {
