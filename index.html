@@ -569,16 +569,14 @@
 
         const d       = new Date(a.dateSent);
         const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-        const tags    = (a.audience || []).map(aud => `<span class="tag">${escHtml(aud)}</span>`).join('');
-
-        row.innerHTML = `
-          <div class="row-content">
-            <div class="row-date">${dateStr}</div>
-            <div class="row-title">${escHtml(a.title)}</div>
-            <div class="row-tags">${tags}</div>
-          </div>
-          <span class="row-chevron">›</span>
-        `;
+        
+row.innerHTML = `
+  <div class="row-content">
+    <div class="row-date">${dateStr}</div>
+    <div class="row-title">${escHtml(a.title)}</div>
+  </div>
+  <span class="row-chevron">›</span>
+`;
 
         row.addEventListener('click', () => openDetail(a));
         container.appendChild(row);
@@ -599,16 +597,12 @@
 
       const d       = new Date(a.dateSent);
       const dateStr = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-      const tags    = (a.audience || []).map(aud => `<span class="tag">${escHtml(aud)}</span>`).join('');
+      
 
       document.getElementById('detailMeta').innerHTML = `
         <div class="detail-meta-item">
           <div class="detail-meta-label">Date</div>
           <div class="detail-meta-value">${dateStr}</div>
-        </div>
-        <div class="detail-meta-item">
-          <div class="detail-meta-label">Audience</div>
-          <div class="detail-meta-tags">${tags}</div>
         </div>
       `;
 
