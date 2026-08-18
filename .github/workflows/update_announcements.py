@@ -160,7 +160,7 @@ def parse_date(raw_value, row_id):
     for fmt in DATE_FORMATS:
         try:
             dt = datetime.strptime(raw_value, fmt)
-            return dt.strftime("%Y-%m-%dT%H:%M:%S")
+            return dt.strftime("%Y-%m-%dT%H:%M:%S") + "Z"
         except ValueError:
             continue
     log(f"  ! Row {row_id}: could not parse DateSent '{raw_value}' — using it as-is")
