@@ -113,6 +113,36 @@
           "name": "37bb7e11-7bc0-4a45-8de3-9cd3911582c2-August '26 L'Ambiance Newsletter.pdf"
         }
       ]
+    },
+    {
+      "id": "d6210d98-b50a-451c-8e68-bd819f401e0a",
+      "title": "Virtuous Management Group - Online Portal Locked",
+      "dateSent": "2026-08-27T17:50:48Z",
+      "audience": [
+        "Property Manager"
+      ],
+      "body": "<p>HI,</p><p>Your account has been temporarily locked due to multiple unsuccessful login<br>attempts. Clicking the &quot;Unlock my account&quot; link below will start the process of<br>getting your account unlocked.</p><p>Unlock my account</p><p>Thank you for choosing Virtuous Management Group.</p><p>Virtuous Management Group<br>(850) 610-8222 [tel:(850) 610-8222]</p><p>Appfolio Logo</p>",
+      "attachments": []
+    },
+    {
+      "id": "1b607709-6099-4c50-8b9d-07da13dff218",
+      "title": "Change Your Online Portal Password",
+      "dateSent": "2026-08-27T17:51:54Z",
+      "audience": [
+        "Property Manager"
+      ],
+      "body": "<p>HI,</p><p>We&#x27;ve received a request to change your password. Click the &quot;Reset Password&quot;<br>button below to set up a new password.</p><p>Reset Password</p><p>If you did not request to change your password, please ignore this email.</p><p>Thank you for choosing Used to migrate identities from TPortal to KeyCloak.</p><p>Used to migrate identities from TPortal to KeyCloak</p><p>Appfolio Logo</p>",
+      "attachments": []
+    },
+    {
+      "id": "c987c791-84d0-4628-83a2-a8259c1d33e5",
+      "title": "Virtuous Management Group - Your Online Portal password was updated",
+      "dateSent": "2026-08-27T17:52:50Z",
+      "audience": [
+        "Property Manager"
+      ],
+      "body": "<p>HI,</p><p>Your Online Portal password was updated.</p><p>If this was you, you can safely ignore this email. If you did not make these<br>changes, please contact your property manager as soon as possible.</p><p>Thank you for choosing Virtuous Management Group.</p><p>Virtuous Management Group<br>(850) 610-8222 [tel:(850) 610-8222]</p><p>Appfolio Logo</p>",
+      "attachments": []
     }
   ]
 }
