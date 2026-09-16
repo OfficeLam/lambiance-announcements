@@ -143,6 +143,16 @@
       ],
       "body": "<p>HI,</p><p>Your Online Portal password was updated.</p><p>If this was you, you can safely ignore this email. If you did not make these<br>changes, please contact your property manager as soon as possible.</p><p>Thank you for choosing Virtuous Management Group.</p><p>Virtuous Management Group<br>(850) 610-8222 [tel:(850) 610-8222]</p><p>Appfolio Logo</p>",
       "attachments": []
+    },
+    {
+      "id": "05e5909b-d42d-4219-aef5-e9c978874c8f",
+      "title": "Your Online Portal by AppFolio is now FolioSpace™",
+      "dateSent": "2026-09-16T15:28:46Z",
+      "audience": [
+        "Property Manager"
+      ],
+      "body": "<p>Hi Amina,</p><p>We are AppFolio, the platform your Property Management company uses to provide<br>your Online Portal where you can manage communications, maintenance requests,<br>make payments, and more. We are reaching out to you today to inform you that the<br>Online Portal has a new name, FolioSpace. The experience you know remains the<br>same.</p><p>Starting today, you will begin seeing FolioSpace Online Portal when you sign in,<br>use the mobile app, and receive emails. There’s nothing you need to do:<br> * Your login and password stay the same.<br> * No new app download is needed. <br> * Your existing links and bookmarks will continue to work. <br> * Everything else works the same way.</p><p>Thank you, <br>AppFolio</p>",
+      "attachments": []
     }
   ]
 }
